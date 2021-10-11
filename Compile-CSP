@@ -11,7 +11,7 @@
   
   apt-get remove --purge openjdk-*
   cd /home
-  wget https://mega.nz/file/91x0xRaZ#-0XdPHZBzHmoyFHl5ryhDs0Opir1dlL9DAi2qXE4aJw
+  wget https://app.box.com/s/ayt5pbvwsfot707nvz3h7uy6mby43b1b
   tar zxvf jdk-8uversion-linux-x64.tar.gz
 
 
