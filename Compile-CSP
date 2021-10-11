@@ -6,18 +6,23 @@
 ###################################################################################
 
 
-1-  apt-get update
-2-  apt-get install ant sudo subversion tar python-software-properties software-properties-common
-3-  apt-get update
+  apt-get update
+  apt-get install ant sudo subversion tar python software-properties-common
+  
+  apt-get remove --purge openjdk-*
+  cd /home
+  wget https://mega.nz/file/91x0xRaZ#-0XdPHZBzHmoyFHl5ryhDs0Opir1dlL9DAi2qXE4aJw
+  tar zxvf jdk-8uversion-linux-x64.tar.gz
 
-7-  apt-get remove --purge openjdk-*
 
 
-11- cd lib
+
+
+cd lib
 12- mkdir cspsvn
 13- cd cspsvn
 14- svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
-15- apt-get install ant
+
 16- cd CSP-svn
 17- ant build
 18- ant tar-app
