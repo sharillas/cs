@@ -1,0 +1,55 @@
+Install Java 9 and CSP compilation on Ubuntu or Debian x64bits
+#EDITED BY SHARILLAS
+
+
+1-  apt-get update
+2-  apt-get install sudo subversion tar python-software-properties software-properties-common
+3-  apt-get update
+4-  echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+5-  echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+6-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+7-  apt-get remove --purge openjdk-*
+8-  apt-get update
+9-  apt-get install oracle-java6-installer
+10- apt-get install oracle-java6-set-default
+11- cd lib
+12- mkdir cspsvn
+13- cd cspsvn
+14- svn co http://streamboard.tv/svn/CSP/trunk CSP-svn
+15- apt-get install ant
+16- cd CSP-svn
+17- ant build
+18- ant tar-app
+19- cd dist
+20- tar -zxvf cardservproxy.tar.gz
+21- mv cardservproxy /usr/local/csp
+22- cd /usr/local/csp
+23- ./cardproxy.sh start
+and again repeat command
+24- ./cardproxy.sh start
+Starting CardServProxy: [ OK ]
+25- Browser= http://ip_do_server:8082  user:admin pass:secret
+
+ACTUALIZAR O JAVA para a Ultima versão
+26- ./cardproxy.sh stop
+27- apt-get remove --purge oracle-java6-installer oracle-java6-set-default
+28- apt-get remove --purge openjdk-*
+29- apt-get update
+30- apt-get install oracle-java9-installer oracle-java9-set-default
+31- dizer "yes" aceito os termos do java e ENTER
+32- ./cardproxy start
+Starting CardServProxy: [ OK ]
+25- Browser= http://ip_do_server:8082  user:admin pass:secret
+
+Configurar o CSP com SSL ou seja em ves de http:ip_do_server:8082 fica https://ip_do_server:8082
+
+26- ./cardproxy.sh stop
+27- keytool -keystore csp_keystore -genkey -alias Cardservproxy -keyalg RSA -storepass mypassword123 -keypass mypassword123 -dname "cn=yourserver.dyndns.org" -validity 1000
+mv csp_keystore /usr/local/csp/etc/
+28- depois ir por winscp á pasta /usr/local/csp/config/proxy.xml e editar o ficheiro proxy.xml:
+<ssl enabled="true">
+<keystore password="mypassword123">etc/csp_keystore</keystore>
+</ssl>
+29- ./cardproxy.sh start
+30- Browser= https://ip_do_server:8082 user:admin pass:secret
+Ligação ao CSP segura encryptada por ssl
