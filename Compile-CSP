@@ -15,7 +15,7 @@ Install Java 9 and CSP compilation on Ubuntu or Debian x64bits
 11- cd lib
 12- mkdir cspsvn
 13- cd cspsvn
-14- svn co http://streamboard.tv/svn/CSP/trunk CSP-svn
+14- svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
 15- apt-get install ant
 16- cd CSP-svn
 17- ant build
