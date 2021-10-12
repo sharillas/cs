@@ -7,15 +7,32 @@
 
 
   apt-get update
-  apt-get install ant sudo subversion tar python software-properties-common
+  apt-get install gzip tar ant sudo subversion tar python software-properties-common
   
   apt-get remove --purge openjdk-*
-  cd /home
+  
+  mkdir /usr/lib/jvm
+  cd /usr/lib/jvm
+  
   wget https://github.com/sharillas/Java/blob/a503f4ec5664e4f1de817f9244c5df8a0a3f3ab3/jre-8u202-linux-x64.tar.gz
-  tar zxvf jdk-8uversion-linux-x64.tar.gz
+  tar xzf jdk-8uversion-linux-x64.tar.gz
+  
+  nano /etc/environments
+  
+/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin
+J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
+J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
+JAVA_HOME="/usr/lib/jvm/jdk1.8.0_202"
+CTRL+O, Enter
+CTRL+X, Enter
 
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 0
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 0
+sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_202/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_202/bin/javac
 
-
+update-alternatives --list java
+update-alternatives --list javac
 
 
 cd lib
