@@ -17,7 +17,7 @@
   tar xzf jdk-8u202-linux-x64.tar.gz
   sleep 5
   
-  cat <<EOF > /etc/environment
+  cat << EOF > /etc/environment
   PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin"
   J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
   J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
