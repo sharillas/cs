@@ -29,6 +29,10 @@
   update-alternatives --list java
   update-alternatives --list javac
   sleep 2
+  java -version
+  sleep 2
+  javac -version
+  sleep 2
   echo " download svn CSP from Trunk "
   cd /lib
   mkdir cspsvn
