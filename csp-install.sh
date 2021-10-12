@@ -6,7 +6,7 @@
   #                                                                                 #
   ###################################################################################
 
-  apt-get update && apt -list upgradable && apt upgrade
+  apt-get update && apt list --upgradable && apt upgrade
   apt-get install gzip tar ant sudo subversion tar python software-properties-common
   apt-get remove --purge openjdk-*
   sleep 5
