@@ -30,7 +30,7 @@
   update-alternatives --list javac
   sleep 2
   echo " download svn CSP from Trunk "
-  cd lib
+  cd /lib
   mkdir cspsvn
   cd cspsvn
   svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
