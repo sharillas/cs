@@ -1,0 +1,4 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin"
+J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
+J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
+JAVA_HOME="/usr/lib/jvm/jdk1.8.0_202"
