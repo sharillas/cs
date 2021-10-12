@@ -6,9 +6,10 @@
   #                                                                                 #
   ###################################################################################
 
-  apt-get update && apt list --upgradable && apt -y upgrade
-  apt-get -y install gzip tar ant sudo subversion tar python software-properties-common
+  apt-get update
+  apt-get -y install gzip subversion tar python software-properties-common
   apt-get remove --purge openjdk-*
+  apt autoremove
   sleep 5
   echo "install Java JDK 8"
   mkdir /usr/lib/jvm
@@ -38,7 +39,8 @@
   mkdir cspsvn
   cd cspsvn
   svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
-  sleep 5
+  sleep 3
+  apt-get -y install ant
   cd CSP-svn
   ant build
   ant tar-app
