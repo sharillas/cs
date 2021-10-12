@@ -7,7 +7,7 @@
   ###################################################################################
 
   apt-get update && apt list --upgradable && apt -y upgrade
-  apt-get install gzip tar ant sudo subversion tar python software-properties-common
+  apt-get -y install gzip tar ant sudo subversion tar python software-properties-common
   apt-get remove --purge openjdk-*
   sleep 5
   echo "install Java JDK 8"
