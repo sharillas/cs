@@ -13,8 +13,8 @@
   echo "install Java JDK 8"
   mkdir /usr/lib/jvm
   cd /usr/lib/jvm
-  wget https://github.com/sharillas/Java/blob/a503f4ec5664e4f1de817f9244c5df8a0a3f3ab3/jre-8u202-linux-x64.tar.gz
-  tar xzf jdk-8uversion-linux-x64.tar.gz
+  wget https://github.com/sharillas/Java/raw/main/jdk-8u202-linux-x64.tar.gz
+  tar xzf jdk-8u202-linux-x64.tar.gz
   sleep 5
   cat <<'EOF' > /etc/environment 
   PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin"
