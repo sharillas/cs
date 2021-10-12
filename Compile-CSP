@@ -1,78 +1,55 @@
-###################################################################################
-#                                                                                 #
-#        Install Java 8 and CSP compilation on Ubuntu or Debian x64bits           #
-#                                EDITED BY SHARILLAS                              #
-#                                                                                 #
-###################################################################################
+  #!/bin/bash
+  ###################################################################################
+  #                                                                                 #
+  #        Install Java 8 and CSP compilation on Ubuntu or Debian x64bits           #
+  #                                EDITED BY SHARILLAS                              #
+  #                                                                                 #
+  ###################################################################################
 
-
-  apt-get update
+  apt-get update && apt -list upgradable && apt upgrade
   apt-get install gzip tar ant sudo subversion tar python software-properties-common
-  
   apt-get remove --purge openjdk-*
-  
+  sleep 5
+  echo "install Java JDK 8"
   mkdir /usr/lib/jvm
   cd /usr/lib/jvm
-  
   wget https://github.com/sharillas/Java/blob/a503f4ec5664e4f1de817f9244c5df8a0a3f3ab3/jre-8u202-linux-x64.tar.gz
   tar xzf jdk-8uversion-linux-x64.tar.gz
-  
-  nano /etc/environments
-  
-/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin
-J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
-J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
-JAVA_HOME="/usr/lib/jvm/jdk1.8.0_202"
-CTRL+O, Enter
-CTRL+X, Enter
-
-sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 0
-sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 0
-sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_202/bin/java
-sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_202/bin/javac
-
-update-alternatives --list java
-update-alternatives --list javac
-
-
-cd lib
-12- mkdir cspsvn
-13- cd cspsvn
-14- svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
-
-16- cd CSP-svn
-17- ant build
-18- ant tar-app
-19- cd dist
-20- tar -zxvf cardservproxy.tar.gz
-21- mv cardservproxy /usr/local/csp
-22- cd /usr/local/csp
-23- ./cardproxy.sh start
-and again repeat command
-24- ./cardproxy.sh start
-Starting CardServProxy: [ OK ]
-25- Browser= http://ip_do_server:8082  user:admin pass:secret
-
-ACTUALIZAR O JAVA para a Ultima versão
-26- ./cardproxy.sh stop
-27- apt-get remove --purge oracle-java6-installer oracle-java6-set-default
-28- apt-get remove --purge openjdk-*
-29- apt-get update
-30- apt-get install oracle-java9-installer oracle-java9-set-default
-31- dizer "yes" aceito os termos do java e ENTER
-32- ./cardproxy start
-Starting CardServProxy: [ OK ]
-25- Browser= http://ip_do_server:8082  user:admin pass:secret
-
-Configurar o CSP com SSL ou seja em ves de http:ip_do_server:8082 fica https://ip_do_server:8082
-
-26- ./cardproxy.sh stop
-27- keytool -keystore csp_keystore -genkey -alias Cardservproxy -keyalg RSA -storepass mypassword123 -keypass mypassword123 -dname "cn=yourserver.dyndns.org" -validity 1000
-mv csp_keystore /usr/local/csp/etc/
-28- depois ir por winscp á pasta /usr/local/csp/config/proxy.xml e editar o ficheiro proxy.xml:
-<ssl enabled="true">
-<keystore password="mypassword123">etc/csp_keystore</keystore>
-</ssl>
-29- ./cardproxy.sh start
-30- Browser= https://ip_do_server:8082 user:admin pass:secret
-Ligação ao CSP segura encryptada por ssl
+  sleep 5
+  cat <<'EOF' > /etc/environment 
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin"
+  J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
+  J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
+  JAVA_HOME="/usr/lib/jvm/jdk1.8.0_202"
+  EOF
+  sleep 2
+  sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 0
+  sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 0
+  sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_202/bin/java
+  sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_202/bin/javac
+  sleep 3
+  update-alternatives --list java
+  update-alternatives --list javac
+  sleep 2
+  echo " download svn CSP from Trunk "
+  cd lib
+  mkdir cspsvn
+  cd cspsvn
+  svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
+  sleep 5
+  cd CSP-svn
+  ant build
+  ant tar-app
+  cd dist
+  tar -zxvf cardservproxy.tar.gz
+  mv cardservproxy /usr/local/csp
+  cd /usr/local/csp
+  echo " Start CSP cardserverProxy server "
+  ./cardproxy.sh start
+  sleep 5
+  echo "and again repeat command"
+  ./cardproxy.sh start
+  sleep 6
+  echo" Starting CardServProxy: [ OK ] "
+  sleep 3
+  echo " Browser= http://ip_do_server:8082  user:admin pass:secret"
