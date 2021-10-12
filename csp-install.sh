@@ -17,9 +17,9 @@
   tar xzf jdk-8u202-linux-x64.tar.gz
   sleep 4
   cd /home
-  wget 
-  
-     
+  rm /etc/environment
+  wget https://github.com/sharillas/cs/raw/main/environment
+  mv environment /etc/environment     
   sleep 2
   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 0
   sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 0
