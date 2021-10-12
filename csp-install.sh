@@ -50,10 +50,14 @@
   cd /usr/local/csp
   echo " Start CSP cardserverProxy server "
   ./cardproxy.sh start
-  sleep 5
-  echo "and again repeat command"
+  sleep 4
+  echo "change proxy.xml to default"
+  rm /usr/local/csp/config/proxy.xml
+  cd /usr/local/csp/config
+  wget https://github.com/sharillas/cs/raw/main/proxy.xml
+  cd /usr/local/csp
   ./cardproxy.sh start
   sleep 6
-  echo" Starting CardServProxy: [ OK ] "
+  echo " Starting CardServProxy: [ OK ] "
   sleep 3
   echo " Browser= http://ip_do_server:8082  user:admin pass:secret"
