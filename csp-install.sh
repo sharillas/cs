@@ -22,7 +22,8 @@
   J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
   J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
   JAVA_HOME="/usr/lib/jvm/jdk1.8.0_202"
-  EOF
+  EOF >
+  
    
   sleep 2
   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 0
