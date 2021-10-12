@@ -16,7 +16,8 @@
   wget https://github.com/sharillas/Java/raw/main/jdk-8u202-linux-x64.tar.gz
   tar xzf jdk-8u202-linux-x64.tar.gz
   sleep 5
-  tee <<EOF /etc/environment >/dev/null
+  
+  cat <<EOF > /etc/environment
   PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin"
   J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
   J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
