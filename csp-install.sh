@@ -15,16 +15,11 @@
   cd /usr/lib/jvm
   wget https://github.com/sharillas/Java/raw/main/jdk-8u202-linux-x64.tar.gz
   tar xzf jdk-8u202-linux-x64.tar.gz
-  sleep 5
+  sleep 4
+  cd /home
+  wget 
   
-  cat <<EOF > /etc/environment
-  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/jdk1.8.0_202/bin:/usr/lib/jvm/jdk1.8.0_202/jre/bin"
-  J2SDKDIR="/usr/lib/jvm/jdk1.8.0_202"
-  J2REDIR="/usr/lib/jvm/jdk1.8.0_202/jre"
-  JAVA_HOME="/usr/lib/jvm/jdk1.8.0_202"
-  EOF
-  
-   
+     
   sleep 2
   sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_202/bin/java" 0
   sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_202/bin/javac" 0
