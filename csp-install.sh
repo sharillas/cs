@@ -60,10 +60,13 @@
   sleep 6
   echo " Starting CardServProxy: [ OK ] "
   sleep 3
-  ln -s /usr/local/csp/cardproxy.sh /sbin/csp
+  cd /usr/local/csp
+  wget https://github.com/sharillas/cs/raw/main/csp_StartStop.sh
+  ln -s /usr/local/csp/csp_StartStop.sh /sbin/csp
   sleep 1
   echo " Sempre que quiserem fazer Start ou stop"
   echo " Basta fazer o seguinte comando como root:"
   echo " csp start ---> para arrancar o service"
   echo " csp stop ---> para parar o service"
+  echo " csp restart ---> para actualizar service"
   echo " Browser= http://ip_do_server:8082  user:admin pass:secret"
