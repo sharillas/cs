@@ -16,7 +16,7 @@
   cd /usr/lib/jvm
   rm jdk-8u202-linux-x64.tar.gz
   wget https://cdn-102.anonfiles.com/51jayaa8ye/7f9ca4e6-1650985068/jre-8u202-linux-x64.tar.gz
-  tar -xzf jdk-8u202-linux-x64.tar.gz
+  tar xzf jdk-8u202-linux-x64.tar.gz
   sleep 4
   cd /home
   rm -r /etc/environment
