@@ -7,7 +7,7 @@
   ###################################################################################
 
   apt-get update
-  apt-get -y install gzip subversion tar python software-properties-common
+  apt-get -y install gzip subversion tar python software-properties-common sudo
   apt-get remove --purge openjdk-*
   apt autoremove
   sleep 5
