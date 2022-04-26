@@ -14,7 +14,7 @@
   echo "install Java JDK 8"
   mkdir /usr/lib/jvm
   cd /usr/lib/jvm
-  rm -r jdk-8u202-linux-x64.tar.gz
+  rm jdk-8u202-linux-x64.tar.gz
   wget https://github.com/sharillas/Java/raw/main/jdk-8u202-linux-x64.tar.gz
   tar xzf jdk-8u202-linux-x64.tar.gz
   sleep 4
@@ -53,9 +53,9 @@
   ./cardproxy.sh start
   sleep 4
   echo "change proxy.xml to default"
-  rm -r /usr/local/csp/config/proxy.xml
   cd /usr/local/csp/config
-  wget https://github.com/sharillas/cs/raw/main/proxy.xml
+  rm /usr/local/csp/config/proxy.xml
+    wget https://github.com/sharillas/cs/raw/main/proxy.xml
   cd /usr/local/csp
   ./cardproxy.sh start
   sleep 6
@@ -64,6 +64,7 @@
   cd /usr/local/csp
   wget https://github.com/sharillas/cs/raw/main/csp_StartStop.sh
   chmod 755 csp_StartStop.sh
+  touch /usr/local/csp/csp_StartStop.sh
   ln -s /usr/local/csp/csp_StartStop.sh /bin/csp
   sleep 1
   echo " Sempre que quiserem fazer Start ou stop"
