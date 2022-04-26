@@ -7,7 +7,7 @@
   ###################################################################################
 
   apt-get update
-  apt-get -y install gzip subversion tar python software-properties-common sudo
+  apt-get -y install gzip subversion tar python software-properties-common ant
   apt-get remove --purge openjdk-*
   apt autoremove
   sleep 5
@@ -16,7 +16,7 @@
   cd /usr/lib/jvm
   rm jdk-8u202-linux-x64.tar.gz
   wget https://github.com/sharillas/Java/raw/main/jdk-8u202-linux-x64.tar.gz
-  tar xzf jdk-8u202-linux-x64.tar.gz
+  tar -xzf jdk-8u202-linux-x64.tar.gz
   sleep 4
   cd /home
   rm -r /etc/environment
@@ -36,36 +36,35 @@
   javac -version
   sleep 2
   echo " download svn CSP from Trunk "
-  cd /lib
+  cd /home
   mkdir cspsvn
   cd cspsvn
   svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
   sleep 3
-  apt-get -y install ant
-  cd CSP-svn
+  cd /home/cspsvn/CSP-svn
   ant build
   ant tar-app
   cd dist
   tar -zxvf cardservproxy.tar.gz
-  sudo mv cardservproxy /usr/local/csp
-  sudo cd /usr/local/csp
+  mv cardservproxy /usr/local/csp
+  cd /usr/local/csp
   echo " Start CSP cardserverProxy server "
   ./cardproxy.sh start
   sleep 4
   echo "change proxy.xml to default"
-  sudo cd /usr/local/csp/config
-  sudo rm /usr/local/csp/config/proxy.xml
+  cd /usr/local/csp/config
+  rm /usr/local/csp/config/proxy.xml
   wget https://github.com/sharillas/cs/raw/main/proxy.xml
-  sudo cd /usr/local/csp
+  cd /usr/local/csp
   ./cardproxy.sh start
   sleep 6
   echo " Starting CardServProxy: [ OK ] "
   sleep 3
-  sudo cd /usr/local/csp
+  cd /usr/local/csp
   wget https://github.com/sharillas/cs/raw/main/csp_StartStop.sh
-  sudo chmod 755 csp_StartStop.sh
-  sudo touch /usr/local/csp/csp_StartStop.sh
-  sudo ln -s /usr/local/csp/csp_StartStop.sh /bin/csp
+  chmod 755 csp_StartStop.sh
+  touch /usr/local/csp/csp_StartStop.sh
+  ln -s /usr/local/csp/csp_StartStop.sh /bin/csp
   sleep 1
   echo " Sempre que quiserem fazer Start ou stop"
   echo " Basta fazer o seguinte comando como root:"
