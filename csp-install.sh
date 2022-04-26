@@ -47,25 +47,25 @@
   ant tar-app
   cd dist
   tar -zxvf cardservproxy.tar.gz
-  mv cardservproxy /usr/local/csp
-  cd /usr/local/csp
+  sudo mv cardservproxy /usr/local/csp
+  sudo cd /usr/local/csp
   echo " Start CSP cardserverProxy server "
   ./cardproxy.sh start
   sleep 4
   echo "change proxy.xml to default"
-  cd /usr/local/csp/config
-  rm /usr/local/csp/config/proxy.xml
-    wget https://github.com/sharillas/cs/raw/main/proxy.xml
-  cd /usr/local/csp
+  sudo cd /usr/local/csp/config
+  sudo rm /usr/local/csp/config/proxy.xml
+  wget https://github.com/sharillas/cs/raw/main/proxy.xml
+  sudo cd /usr/local/csp
   ./cardproxy.sh start
   sleep 6
   echo " Starting CardServProxy: [ OK ] "
   sleep 3
-  cd /usr/local/csp
+  sudo cd /usr/local/csp
   wget https://github.com/sharillas/cs/raw/main/csp_StartStop.sh
-  chmod 755 csp_StartStop.sh
-  touch /usr/local/csp/csp_StartStop.sh
-  ln -s /usr/local/csp/csp_StartStop.sh /bin/csp
+  sudo chmod 755 csp_StartStop.sh
+  sudo touch /usr/local/csp/csp_StartStop.sh
+  sudo ln -s /usr/local/csp/csp_StartStop.sh /bin/csp
   sleep 1
   echo " Sempre que quiserem fazer Start ou stop"
   echo " Basta fazer o seguinte comando como root:"
