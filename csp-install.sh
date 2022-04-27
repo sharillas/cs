@@ -41,6 +41,7 @@
   cd cspsvn
   svn co http://svn.streamboard.tv/CSP/trunk CSP-svn
   sleep 3
+  apt-get -y install ant
   cd /home/cspsvn/CSP-svn
   ant build
   ant tar-app
