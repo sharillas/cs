@@ -67,6 +67,9 @@
   touch /usr/local/csp/csp_StartStop.sh
   ln -s /usr/local/csp/csp_StartStop.sh /bin/csp
   sleep 1
+  cd /home
+  rm csp-install.sh
+  sleep 2
   echo " Sempre que quiserem fazer Start ou stop"
   echo " Basta fazer o seguinte comando como root:"
   echo " csp start ---> para arrancar o service"
